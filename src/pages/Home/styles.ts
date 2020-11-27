@@ -22,14 +22,6 @@ export const Description = styled.Text`
   margin-bottom: 25px;
 `
 
-export const Input = styled.TextInput`
-  color: #747476;
-  font-size: 16px;
-  padding: 20px 40px;
-  border-radius: 10px;
-  background-color: #F2F2F2;
-`
-
 export const List = styled.View`
   margin-top: 45px;
 `

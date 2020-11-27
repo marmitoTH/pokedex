@@ -2,9 +2,18 @@ import React, { useEffect, useState } from 'react'
 import { ScrollView } from 'react-native'
 import api from '../../services/api'
 import getIDFromURL from '../../utils/getIDFromURL'
-import { Container, Background, Title, Description, Input, List, Element } from './styles'
+import SearchBar from '../../components/SearchBar'
 import Card from '../../components/Card'
 import pokeballBg from '../../assets/images/pokeball-bg.png'
+
+import {
+  Container,
+  Background,
+  Title,
+  Description,
+  List,
+  Element
+} from './styles'
 
 interface BaseData {
   results: {
@@ -13,25 +22,56 @@ interface BaseData {
   }[]
 }
 
-const Home = () => {
+interface Pokemon {
+  id: number
+  name: string
+}
+
+const Home: React.FC = () => {
   const [baseData, setBaseData] = useState<BaseData>()
 
-  useEffect(() => {
-    const fetch = async () => {
-      const baseData = await api.get<BaseData>('/pokemon')
-      setBaseData(baseData.data)
+  const loadList = async () => {
+    const baseData = await api.get<BaseData>('/pokemon')
+    setBaseData(baseData.data)
+  }
+
+  const search = async (query: string) => {
+    if (query.length === 0) {
+      loadList()
+      return
     }
 
-    fetch()
-  })
+    api.get<Pokemon>(`/pokemon/${query}`)
+      .then(response => {
+        const { id, name } = response.data
+
+        setBaseData({
+          results: [{
+            name,
+            url: `https://pokeapi.co/api/v2/pokemon/${id}/`
+          }]
+        })
+      }).catch(() => {
+        setBaseData(undefined)
+      })
+  }
+
+  useEffect(() => {
+    loadList()
+  }, [])
 
   return (
     <ScrollView>
       <Container>
         <Background source={pokeballBg} />
         <Title>Pokémon</Title>
-        <Description>Search fro Pokémon by name or using the National Pokédex number.</Description>
-        <Input placeholder='What Pokémon are you looking for?' />
+        <Description>
+          Search fro Pokémon by name or using the National Pokédex number.
+        </Description>
+        <SearchBar
+          placeholder='What Pokémon are you looking for?'
+          onSearch={search}
+        />
         <List>
           {baseData?.results.map((value, key) => {
             const id = getIDFromURL(value.url)
