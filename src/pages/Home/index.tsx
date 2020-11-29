@@ -73,17 +73,14 @@ const Home: React.FC = () => {
           onSearch={search}
         />
         <List>
-          {baseData?.results.map((value, key) => {
-            const id = getIDFromURL(value.url)
-            return (
-              <Element key={key}>
-                <Card
-                  id={id}
-                  name={value.name}
-                />
-              </Element>
-            )
-          })}
+          {baseData?.results.map((value, key) => (
+            <Element key={key}>
+              <Card
+                id={getIDFromURL(value.url)}
+                name={value.name}
+              />
+            </Element>
+          ))}
         </List>
       </Container>
     </ScrollView>

@@ -30,7 +30,7 @@ export const PokemonImg = styled.Image`
 `
 
 export const ID = styled.Text`
-  color: rgba(23, 23, 27, 0.6);
+  color: rgba(255, 255, 255, 0.5);
   font-size: 20px;
   font-weight: bold;
 `

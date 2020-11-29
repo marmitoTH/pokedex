@@ -1,4 +1,8 @@
 const capitalize = (target: string): string => {
+  if (target.length === 0) {
+    return ''
+  }
+
   let words = target.split(' ')
 
   for (let i = 0; i < words.length; i++) {
