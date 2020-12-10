@@ -1,15 +1,15 @@
 import React from 'react'
 import { registerRootComponent } from 'expo'
+import { StatusBar } from 'expo-status-bar'
+import { View, Text } from 'react-native'
 
-import Home from './pages/Home'
-import Profile from './pages/Profile'
-
-const App = () => {
+const App: React.FC = () => {
   return (
-    <>
-      <Profile />
-    </>
+    <View>
+      <Text>Hello World!!!</Text>
+      <StatusBar style='auto' />
+    </View>
   )
 }
 
-export default registerRootComponent(App)
+registerRootComponent(App)
