@@ -1,4 +1,5 @@
 import React from 'react'
+import capitalize from '../../utils/capitalize'
 import * as Styled from './styles'
 
 export interface TypeCardProps {
@@ -7,7 +8,7 @@ export interface TypeCardProps {
 
 const TypeCard: React.FC<TypeCardProps> = ({ type }) => (
   <Styled.Container>
-    <Styled.Type>{type}</Styled.Type>
+    <Styled.Type>{capitalize(type)}</Styled.Type>
   </Styled.Container>
 )
 

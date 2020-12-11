@@ -17,7 +17,7 @@ export const ID = styled.Text`
 
 export const Name = styled.Text`
   color: #fff;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   font-size: 20px;
   font-weight: bold;
 `
