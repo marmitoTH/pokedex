@@ -34,3 +34,7 @@ export const Input = styled.TextInput`
   margin-top: 25px;
   border-radius: 10px;
 `
+
+export const List = styled.FlatList`
+  margin-top: 45px;
+`
