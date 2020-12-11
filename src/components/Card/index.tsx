@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text } from 'react-native'
+import TypeCard from '../TypeCard'
 import * as Styled from './styles'
 
 export interface CardProps {
@@ -18,9 +18,11 @@ const Card: React.FC<CardProps> = ({ pokemonData }) => {
       <Styled.Name>{pokemonData.name}</Styled.Name>
       <Styled.Pokeball source={pokeball} />
       <Styled.Pokemon source={{ uri: pokemonData.image }} />
-      {pokemonData.types.map((type, key) => (
-        <Text key={key}>{type}</Text>
-      ))}
+      <Styled.Types>
+        {pokemonData.types.map((type, key) => (
+          <TypeCard key={key} type={type} />
+        ))}
+      </Styled.Types>
     </Styled.Container>
   )
 }

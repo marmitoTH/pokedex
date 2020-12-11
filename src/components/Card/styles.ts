@@ -11,8 +11,13 @@ export const Container = styled.View`
 
 export const Name = styled.Text`
   color: #fff;
+  margin-bottom: 10px;
   font-size: 20px;
   font-weight: bold;
+`
+
+export const Types = styled.View`
+  flex-direction: row;
 `
 
 export const Pokemon = styled.Image`
