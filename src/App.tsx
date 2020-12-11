@@ -1,15 +1,13 @@
 import React from 'react'
 import { registerRootComponent } from 'expo'
 import { StatusBar } from 'expo-status-bar'
-import { View, Text } from 'react-native'
+import Home from './pages/Home'
 
-const App: React.FC = () => {
-  return (
-    <View>
-      <Text>Hello World!!!</Text>
-      <StatusBar style='auto' />
-    </View>
-  )
-}
+const App: React.FC = () => (
+  <>
+    <Home />
+    <StatusBar style='auto' />
+  </>
+)
 
 registerRootComponent(App)
