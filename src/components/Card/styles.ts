@@ -9,6 +9,12 @@ export const Container = styled.View`
   background: #ea5d60;
 `
 
+export const ID = styled.Text`
+  font-size: 12px;
+  font-weight: bold;
+  color: rgba(23, 23, 27, 0.5);
+`
+
 export const Name = styled.Text`
   color: #fff;
   margin-bottom: 10px;
