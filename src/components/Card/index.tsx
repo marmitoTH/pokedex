@@ -16,7 +16,7 @@ const Card: React.FC<CardProps> = ({ pokemonData }) => {
   const pokeball = require('../../assets/images/pokeball/pokeball.png')
 
   return (
-    <Styled.Container>
+    <Styled.Container type={pokemonData.types[0]}>
       <Styled.ID>#{String(pokemonData.id).padStart(3, '0')}</Styled.ID>
       <Styled.Name>{capitalize(pokemonData.name)}</Styled.Name>
       <Styled.Pokeball source={pokeball} />

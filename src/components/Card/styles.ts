@@ -1,13 +1,14 @@
 import styled from 'styled-components/native'
 import { RectButton } from 'react-native-gesture-handler'
+import getColorFromType from '../../utils/getColorFromType'
 
-export const Container = styled(RectButton)`
+export const Container = styled(RectButton) <{ type: string }>`
   height: 130px;
   padding: 20px;
   overflow: hidden;
   margin-bottom: 15px;
   border-radius: 10px;
-  background: #ea5d60;
+  background: ${({ type }) => getColorFromType(type)};
 `
 
 export const ID = styled.Text`
@@ -37,10 +38,10 @@ export const Pokemon = styled.Image`
 
 export const Pokeball = styled.Image`
   opacity: 0.1;
-  width: 130px;
-  height: 130px;
+  width: 150px;
+  height: 150px;
   position: absolute;
-  right: -10px;
+  right: -15px;
   bottom: -15px;
   tint-color: #fff;
 `
