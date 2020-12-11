@@ -7,19 +7,19 @@ const getColorFromType = (type: string) => {
     case 'dragon':
       return '#7383B9'
     case 'eletric':
-      return '#F2CB55'
+      return '#ffd86f'
     case 'fairy':
       return '#EBA8C3'
     case 'fighting':
       return '#EB4971'
     case 'fire':
-      return '#FFA756'
+      return '#fb6c6c'
     case 'flying':
       return '#83A2E3'
     case 'ghost':
       return '#8571BE'
     case 'grass':
-      return '#8BBE8A'
+      return '#48d0b0'
     case 'ground':
       return '#F78551'
     case 'ice':
@@ -35,7 +35,7 @@ const getColorFromType = (type: string) => {
     case 'steel':
       return '#4C91B2'
     case 'water':
-      return '#58ABF6'
+      return '#76bdfe'
   }
 }
 

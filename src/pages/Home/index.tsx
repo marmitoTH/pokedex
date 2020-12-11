@@ -37,7 +37,7 @@ const Home: React.FC = () => {
       </Styled.Description>
       <Styled.Input placeholder='What Pokémon are you looking for?' />
       <Styled.List
-        data={pokemons?.slice(0, 5)}
+        data={pokemons?.slice(0, 10)}
         showsVerticalScrollIndicator={false}
         keyExtractor={(_, index) => String(index)}
         renderItem={element => {
