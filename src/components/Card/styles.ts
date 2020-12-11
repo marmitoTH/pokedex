@@ -1,7 +1,8 @@
 import styled from 'styled-components/native'
+import { RectButton } from 'react-native-gesture-handler'
 
-export const Container = styled.View`
-  height: 115px;
+export const Container = styled(RectButton)`
+  height: 130px;
   padding: 20px;
   overflow: hidden;
   margin-bottom: 15px;
@@ -10,15 +11,15 @@ export const Container = styled.View`
 `
 
 export const ID = styled.Text`
-  font-size: 12px;
+  font-size: 15px;
   font-weight: bold;
   color: rgba(23, 23, 27, 0.5);
 `
 
 export const Name = styled.Text`
-  color: #fff;
   margin-bottom: 5px;
-  font-size: 20px;
+  color: #fff;
+  font-size: 22px;
   font-weight: bold;
 `
 
@@ -27,17 +28,17 @@ export const Types = styled.View`
 `
 
 export const Pokemon = styled.Image`
-  width: 100px;
-  height: 100px;
+  width: 115px;
+  height: 115px;
   position: absolute;
-  right: 10px;
+  right: 5px;
   bottom: 5px;
 `
 
 export const Pokeball = styled.Image`
   opacity: 0.1;
-  width: 125px;
-  height: 125px;
+  width: 130px;
+  height: 130px;
   position: absolute;
   right: -10px;
   bottom: -15px;
