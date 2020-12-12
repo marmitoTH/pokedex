@@ -7,7 +7,22 @@ import * as Styled from './styles'
 
 const Home: React.FC = () => {
   const [pokemons, setPokemons] = useState<IPokemon[]>()
+  const [pokemonsSearch, setPokemonsSearch] = useState<IPokemon[]>()
   const pokeball = require('../../assets/images/pokeball/pokeball.png')
+
+  const handleSearch = (query: string) => {
+    if (query && pokemons) {
+      const matches = pokemons?.filter(({ id, name }) => (
+        (id.toString() === query) || name.includes(query.toLowerCase())
+      ))
+
+      if (matches) {
+        setPokemonsSearch(matches)
+      }
+    } else {
+      setPokemonsSearch(undefined)
+    }
+  }
 
   useEffect(() => {
     const fetchData = async () => {
@@ -20,7 +35,8 @@ const Home: React.FC = () => {
 
       await api.get<IPokemon[]>('/').then(async response => {
         const pokemons = response.data
-        await AsyncStorage.setItem('@pokedex/pokemons', JSON.stringify(pokemons))
+        await AsyncStorage.setItem('@pokedex/pokemons',
+          JSON.stringify(pokemons))
         setPokemons(pokemons)
       })
     }
@@ -35,9 +51,12 @@ const Home: React.FC = () => {
       <Styled.Description>
         Search for Pokémon by name or using the National Pokédex number.
       </Styled.Description>
-      <Styled.Input placeholder='What Pokémon are you looking for?' />
+      <Styled.Input
+        placeholder='What Pokémon are you looking for?'
+        onChangeText={handleSearch}
+      />
       <Styled.List
-        data={pokemons?.slice(0, 10)}
+        data={pokemonsSearch || pokemons}
         contentContainerStyle={{ flexGrow: 1 }}
         showsVerticalScrollIndicator={false}
         keyExtractor={(_, index) => String(index)}

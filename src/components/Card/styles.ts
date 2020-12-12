@@ -7,7 +7,7 @@ export const Container = styled(RectButton) <{ type: string }>`
   padding: 20px;
   overflow: hidden;
   margin-bottom: 15px;
-  border-radius: 10px;
+  border-radius: 15px;
   background: ${({ type }) => getColorFromType(type)};
 `
 

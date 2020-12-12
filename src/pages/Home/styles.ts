@@ -33,7 +33,7 @@ export const Input = styled.TextInput`
   padding: 20px;
   background: #F2F2F2;
   margin-top: 25px;
-  border-radius: 10px;
+  border-radius: 50px;
 `
 
 export const List = styled.FlatList`

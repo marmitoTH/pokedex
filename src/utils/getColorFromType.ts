@@ -1,12 +1,14 @@
 const getColorFromType = (type: string) => {
   switch (type) {
+    default:
+      return '#000'
     case 'bug':
       return '#8BD674'
     case 'dark':
       return '#6F6E78'
     case 'dragon':
       return '#7383B9'
-    case 'eletric':
+    case 'electric':
       return '#ffd86f'
     case 'fairy':
       return '#EBA8C3'
