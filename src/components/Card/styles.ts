@@ -14,7 +14,7 @@ export const Container = styled(RectButton) <{ type: string }>`
 export const ID = styled.Text`
   font-size: 15px;
   font-weight: bold;
-  color: rgba(23, 23, 27, 0.5);
+  color: rgba(23, 23, 27, 0.3);
 `
 
 export const Name = styled.Text`
@@ -37,7 +37,7 @@ export const Pokemon = styled.Image`
 `
 
 export const Pokeball = styled.Image`
-  opacity: 0.1;
+  opacity: 0.15;
   width: 150px;
   height: 150px;
   position: absolute;

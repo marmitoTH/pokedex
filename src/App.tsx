@@ -1,11 +1,12 @@
+import 'react-native-gesture-handler'
 import React from 'react'
 import { registerRootComponent } from 'expo'
 import { StatusBar } from 'expo-status-bar'
-import Home from './pages/Home'
+import Router from './Router'
 
 const App: React.FC = () => (
   <>
-    <Home />
+    <Router />
     <StatusBar style='auto' />
   </>
 )

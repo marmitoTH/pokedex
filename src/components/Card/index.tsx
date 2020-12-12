@@ -10,13 +10,15 @@ export interface CardProps {
     image: string
     types: string[]
   }
+
+  onPress(): void
 }
 
-const Card: React.FC<CardProps> = ({ pokemonData }) => {
+const Card: React.FC<CardProps> = ({ pokemonData, onPress }) => {
   const pokeball = require('../../assets/images/pokeball/pokeball.png')
 
   return (
-    <Styled.Container type={pokemonData.types[0]}>
+    <Styled.Container type={pokemonData.types[0]} onPress={onPress}>
       <Styled.ID>#{String(pokemonData.id).padStart(3, '0')}</Styled.ID>
       <Styled.Name>{capitalize(pokemonData.name)}</Styled.Name>
       <Styled.Pokeball source={pokeball} />

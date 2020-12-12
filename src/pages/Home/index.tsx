@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react'
-import IPokemon from '../../types/IPokemon'
-import api from '../../services/api'
 import AsyncStorage from '@react-native-async-storage/async-storage'
+import { useNavigation } from '@react-navigation/native'
+import api from '../../services/api'
+import IPokemon from '../../types/IPokemon'
 import Card from '../../components/Card'
 import * as Styled from './styles'
 
 const Home: React.FC = () => {
+  const navigation = useNavigation()
   const [pokemons, setPokemons] = useState<IPokemon[]>()
   const [pokemonsSearch, setPokemonsSearch] = useState<IPokemon[]>()
   const pokeball = require('../../assets/images/pokeball/pokeball.png')
@@ -62,7 +64,10 @@ const Home: React.FC = () => {
         keyExtractor={(_, index) => String(index)}
         renderItem={element => {
           const pokemon = element.item as IPokemon
-          return <Card pokemonData={pokemon} />
+          return <Card
+            pokemonData={pokemon}
+            onPress={() => navigation.navigate('Details', pokemon)}
+          />
         }}
       />
     </Styled.Container>
