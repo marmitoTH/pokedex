@@ -26,6 +26,29 @@ const About: React.FC<Props> = ({ pokemonData }) => {
         <Styled.LeftText>Weight</Styled.LeftText>
         <Styled.RightText>{pokemonData.weight}Kg</Styled.RightText>
       </Styled.Row>
+      <Styled.Title>Training</Styled.Title>
+      <Styled.Row>
+        <Styled.LeftText>EV Yield</Styled.LeftText>
+        <Styled.RightText>{pokemonData.training.evYield}</Styled.RightText>
+      </Styled.Row>
+      <Styled.Row>
+        <Styled.LeftText>Catch Rate</Styled.LeftText>
+        <Styled.RightText>{pokemonData.training.catchRate.value}</Styled.RightText>
+        <Styled.RightText>{pokemonData.training.catchRate.text}</Styled.RightText>
+      </Styled.Row>
+      <Styled.Row>
+        <Styled.LeftText>Base Friendship</Styled.LeftText>
+        <Styled.RightText>{pokemonData.training.baseFriendship.value}</Styled.RightText>
+        <Styled.RightText> ({pokemonData.training.baseFriendship.text})</Styled.RightText>
+      </Styled.Row>
+      <Styled.Row>
+        <Styled.LeftText>Base Exp</Styled.LeftText>
+        <Styled.RightText>{pokemonData.training.baseExp}</Styled.RightText>
+      </Styled.Row>
+      <Styled.Row>
+        <Styled.LeftText>Growth Rate</Styled.LeftText>
+        <Styled.RightText>{pokemonData.training.growthRate}</Styled.RightText>
+      </Styled.Row>
       <Styled.Title>Breeding</Styled.Title>
       <Styled.Row>
         <Styled.LeftText>Gender</Styled.LeftText>

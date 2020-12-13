@@ -8,6 +8,23 @@ interface IPokemon {
   species: string
   types: string[]
 
+  training: {
+    evYield: string
+
+    catchRate: {
+      value: number
+      text: string
+    }
+
+    baseFriendship: {
+      value: number
+      text: string
+    }
+
+    baseExp: number
+    growthRate: string
+  }
+
   breedings: {
     eggGroups: string[]
 
