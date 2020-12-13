@@ -10,6 +10,10 @@ export interface Props {
 const About: React.FC<Props> = ({ pokemonData }) => {
   return (
     <Styled.Container>
+      <Styled.Description>
+        {pokemonData.description}
+      </Styled.Description>
+      <Styled.Title>Pokédex Data</Styled.Title>
       <Styled.Row>
         <Styled.LeftText>Species</Styled.LeftText>
         <Styled.RightText>{pokemonData.species}</Styled.RightText>

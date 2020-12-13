@@ -12,6 +12,7 @@ export const Row = styled.View`
 
 export const Description = styled.Text`
   color: #747476;
+  margin-bottom: 10px;
 `
 
 export const Title = styled.Text`
