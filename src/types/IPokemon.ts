@@ -7,6 +7,20 @@ interface IPokemon {
   weight: number
   species: string
   types: string[]
+
+  breedings: {
+    eggGroups: string[]
+
+    gender: {
+      male: number
+      female: number
+    }
+
+    eggCycles: {
+      value: number
+      text: string
+    }
+  }
 }
 
 export default IPokemon

@@ -4,6 +4,7 @@ import IPokemon from '../../types/IPokemon'
 import capitalize from '../../utils/capitalize'
 import BackButton from '../../components/BackButton'
 import TypeCard from '../../components/TypeCard'
+import About from '../About'
 import * as Styled from './styles'
 
 const Details: React.FC = () => {
@@ -29,7 +30,7 @@ const Details: React.FC = () => {
         <Styled.Pokemon source={{ uri: data.image }} />
       </Styled.Header>
       <Styled.Main>
-
+        <About pokemonData={data} />
       </Styled.Main>
     </Styled.Container>
   )

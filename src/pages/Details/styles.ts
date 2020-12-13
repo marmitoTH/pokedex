@@ -10,7 +10,7 @@ export const Container = styled.View<{ type: string }>`
 `
 
 export const Navbar = styled.View`
-  padding: 5px 20px;
+  padding: 0 20px;
 `
 
 export const Header = styled.View`
