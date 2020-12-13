@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { ScrollView } from 'react-native'
 import { useNavigation, useRoute } from '@react-navigation/native'
 import IPokemon from '../../types/IPokemon'
 import capitalize from '../../utils/capitalize'
@@ -39,15 +40,17 @@ const Details: React.FC = () => {
           options={['About', 'Base Stats', 'Evolutions', 'Moves']}
           onChange={setSubPageIdx}
         />
-        {(() => {
-          switch (subPageIdx) {
-            default:
-            case 0:
-              return <About pokemonData={data} />
-            case 1:
-              return <BaseStats pokemonData={data} />
-          }
-        })()}
+        <ScrollView>
+          {(() => {
+            switch (subPageIdx) {
+              default:
+              case 0:
+                return <About pokemonData={data} />
+              case 1:
+                return <BaseStats pokemonData={data} />
+            }
+          })()}
+        </ScrollView>
       </Styled.Main>
     </Styled.Container>
   )
