@@ -59,6 +59,17 @@ const BaseStats: React.FC<Props> = ({ pokemonData }) => {
           fillAmount={pokemonData.baseStats.speed[0] / pokemonData.baseStats.speed[2]}
         />
       </Styled.Row>
+      <Styled.Row>
+        <Styled.LeftText>Total</Styled.LeftText>
+        <Styled.RightText>
+          {pokemonData.baseStats.attack[0] +
+            pokemonData.baseStats.defence[0] +
+            pokemonData.baseStats.specialAttack[0] +
+            pokemonData.baseStats.specialDefence[0] +
+            pokemonData.baseStats.speed[0] +
+            pokemonData.baseStats.hp[0]}
+        </Styled.RightText>
+      </Styled.Row>
     </Styled.Container>
   )
 }

@@ -12,11 +12,12 @@ export const Row = styled.View`
 `
 
 export const LeftText = styled.Text`
-  min-width: 125px;
+  min-width: 100px;
   color: #747476;
 `
 
 export const RightText = styled.Text`
-  min-width: 50px;
+  min-width: 60px;
   font-weight: bold;
+  text-align: center;
 `
