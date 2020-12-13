@@ -4,12 +4,13 @@ import * as Styled from './styles'
 
 export interface Props {
   options: string[]
+  selectionColor: string
   style?: StyleProp<ViewStyle>
 
   onChange(tabIndex: number): void
 }
 
-const Navbar: React.FC<Props> = ({ options, style, onChange }) => {
+const Navbar: React.FC<Props> = ({ options, selectionColor, style, onChange }) => {
   const [selectedID, setSelectedID] = useState(0)
 
   return (
@@ -31,6 +32,7 @@ const Navbar: React.FC<Props> = ({ options, style, onChange }) => {
           </Styled.ButtonText>
           <Styled.Border
             selected={key === selectedID}
+            selectionColor={selectionColor}
           />
         </Styled.Button>
       ))}

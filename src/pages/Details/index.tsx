@@ -10,6 +10,7 @@ import * as Styled from './styles'
 
 import About from '../About'
 import BaseStats from '../BaseStats'
+import getColorFromType from '../../utils/getColorFromType'
 
 const Details: React.FC = () => {
   const route = useRoute()
@@ -37,6 +38,7 @@ const Details: React.FC = () => {
       <Styled.Main>
         <Navbar
           style={{ marginTop: 40 }}
+          selectionColor={getColorFromType(data.types[0])}
           options={['About', 'Base Stats', 'Evolutions', 'Moves']}
           onChange={setSubPageIdx}
         />

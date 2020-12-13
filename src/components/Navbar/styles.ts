@@ -7,7 +7,7 @@ export const Container = styled.View`
 
 export const Button = styled.TouchableOpacity`
   flex: 1;
-  height: 50px;
+  height: 60px;
   align-items: center;
   justify-content: center;
 `
@@ -21,16 +21,11 @@ export const ButtonText = styled.Text<{ selected?: boolean }>`
   `}
 `
 
-export const Border = styled.View<{ selected?: boolean }>`
+export const Border = styled.View<{ selected?: boolean, selectionColor?: string }>`
   width: 100%;
   height: 2px;
-  opacity: 0.5;
-  background: #efefef;
   position: absolute;
   bottom: 0;
-
-  ${({ selected }) => selected && css`
-    opacity: 1;
-    background: #6c79db;
-  `}
+  opacity: ${props => props.selected && 1 || 0.5};
+  background: ${props => props.selected && props.selectionColor || '#efefef'};
 `
