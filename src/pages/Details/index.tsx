@@ -39,7 +39,7 @@ const Details: React.FC = () => {
         <Navbar
           style={{ marginTop: 40 }}
           selectionColor={getColorFromType(data.types[0])}
-          options={['About', 'Base Stats', 'Evolutions', 'Moves']}
+          options={['About', 'Base Stats', 'Evolutions']}
           onChange={setSubPageIdx}
         />
         <ScrollView>
