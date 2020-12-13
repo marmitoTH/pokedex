@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useNavigation, useRoute } from '@react-navigation/native'
 import IPokemon from '../../types/IPokemon'
 import capitalize from '../../utils/capitalize'
@@ -14,6 +14,7 @@ const Details: React.FC = () => {
   const route = useRoute()
   const navigation = useNavigation()
   const data = route.params as IPokemon
+  const [subPageIdx, setSubPageIdx] = useState(0)
   const pokeball = require('../../assets/images/pokeball/pokeball.png')
 
   return (
@@ -34,11 +35,19 @@ const Details: React.FC = () => {
       </Styled.Header>
       <Styled.Main>
         <Navbar
-          options={['About', 'Base Stats', 'Evolutions', 'Moves']}
           style={{ marginTop: 40 }}
-          onChange={() => { }}
+          options={['About', 'Base Stats', 'Evolutions', 'Moves']}
+          onChange={setSubPageIdx}
         />
-        <BaseStats pokemonData={data} />
+        {(() => {
+          switch (subPageIdx) {
+            default:
+            case 0:
+              return <About pokemonData={data} />
+            case 1:
+              return <BaseStats pokemonData={data} />
+          }
+        })()}
       </Styled.Main>
     </Styled.Container>
   )
