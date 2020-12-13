@@ -4,6 +4,7 @@ import IPokemon from '../../types/IPokemon'
 import capitalize from '../../utils/capitalize'
 import BackButton from '../../components/BackButton'
 import TypeCard from '../../components/TypeCard'
+import Navbar from '../../components/Navbar'
 import About from '../About'
 import * as Styled from './styles'
 
@@ -30,6 +31,11 @@ const Details: React.FC = () => {
         <Styled.Pokemon source={{ uri: data.image }} />
       </Styled.Header>
       <Styled.Main>
+        <Navbar
+          options={['About', 'Base Stats', 'Evolutios', 'Moves']}
+          style={{ marginTop: 40 }}
+          onChange={() => { }}
+        />
         <About pokemonData={data} />
       </Styled.Main>
     </Styled.Container>
