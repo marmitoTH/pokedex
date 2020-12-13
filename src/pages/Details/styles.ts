@@ -15,7 +15,7 @@ export const Navbar = styled.View`
 
 export const Header = styled.View`
   padding: 20px;
-  height: ${Dimensions.get('screen').height * 0.35}px;
+  height: ${Dimensions.get('screen').height * 0.3}px;
 `
 
 export const Main = styled.View`
@@ -44,8 +44,8 @@ export const Types = styled.View`
 
 export const Pokemon = styled.Image`
   z-index: 1;
-  width: 250px;
-  height: 250px;
+  width: 200px;
+  height: 200px;
   position: absolute;
   align-self: center;
   bottom: -60px;
