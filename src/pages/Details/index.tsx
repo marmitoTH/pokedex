@@ -5,8 +5,10 @@ import capitalize from '../../utils/capitalize'
 import BackButton from '../../components/BackButton'
 import TypeCard from '../../components/TypeCard'
 import Navbar from '../../components/Navbar'
-import About from '../About'
 import * as Styled from './styles'
+
+import About from '../About'
+import BaseStats from '../BaseStats'
 
 const Details: React.FC = () => {
   const route = useRoute()
@@ -32,11 +34,11 @@ const Details: React.FC = () => {
       </Styled.Header>
       <Styled.Main>
         <Navbar
-          options={['About', 'Base Stats', 'Evolutios', 'Moves']}
+          options={['About', 'Base Stats', 'Evolutions', 'Moves']}
           style={{ marginTop: 40 }}
           onChange={() => { }}
         />
-        <About pokemonData={data} />
+        <BaseStats pokemonData={data} />
       </Styled.Main>
     </Styled.Container>
   )

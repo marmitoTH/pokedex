@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components/native'
 
 export const Container = styled.View`
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-evenly;
 `
 
 export const Button = styled.TouchableOpacity`
