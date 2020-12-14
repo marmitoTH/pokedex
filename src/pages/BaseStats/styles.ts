@@ -1,3 +1,4 @@
+import { color } from 'react-native-reanimated'
 import styled from 'styled-components/native'
 
 export const Container = styled.View`
@@ -35,4 +36,26 @@ export const LeftText = styled.Text`
 export const RightText = styled.Text`
   color: #747476;
   min-width: 40px;
+`
+
+export const Types = styled.View`
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+`
+
+export const TypeContainer = styled.View`
+  align-items: center;
+  margin-right: 10px;
+  margin-bottom: 20px;
+`
+
+export const TypeIcon = styled.Image<{ color: string }>`
+  margin-bottom: 10px;
+  tint-color: ${props => props.color};
+`
+
+export const TypeValue = styled.Text`
+  color: #747476;
+  text-align: center;
 `

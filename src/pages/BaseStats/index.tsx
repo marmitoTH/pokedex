@@ -2,6 +2,7 @@ import React from 'react'
 import IPokemon from '../../types/IPokemon'
 import GaugeBar from '../../components/GaugeBar'
 import getColorFromType from '../../utils/getColorFromType'
+import getIconFromType from '../../utils/getIconFromType'
 import capitalize from '../../utils/capitalize'
 import * as Styled from './styles'
 
@@ -148,6 +149,19 @@ const BaseStats: React.FC<Props> = ({ pokemonData }) => {
       <Styled.Description style={{ marginTop: 0 }}>
         The effectiveness of each type on {capitalize(pokemonData.name)}.
       </Styled.Description>
+      <Styled.Types>
+        {Object.keys(pokemonData.typeDefences).map((key, index) => (
+          <Styled.TypeContainer key={index}>
+            <Styled.TypeIcon
+              color={getColorFromType((key === 'darl') ? 'dark' : key)}
+              source={getIconFromType((key === 'darl') ? 'dark' : key)}
+            />
+            <Styled.TypeValue>
+              {Object.values(pokemonData.typeDefences)[index]}
+            </Styled.TypeValue>
+          </Styled.TypeContainer>
+        ))}
+      </Styled.Types>
     </Styled.Container>
   )
 }
