@@ -12,6 +12,9 @@ export interface Props {
 const BaseStats: React.FC<Props> = ({ pokemonData }) => {
   return (
     <Styled.Container>
+      <Styled.Title color={getColorFromType(pokemonData.types[0])}>
+        Base Stats
+      </Styled.Title>
       <Styled.Row>
         <Styled.LeftText>HP</Styled.LeftText>
         <Styled.RightText>{pokemonData.baseStats.hp[0]}</Styled.RightText>
