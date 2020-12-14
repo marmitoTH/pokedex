@@ -5,6 +5,20 @@ export const Container = styled.View`
   padding: 20px 40px;
 `
 
+export const Description = styled.Text`
+  color: #747476;
+  font-size: 12px;
+  line-height: 14px;
+  margin: 20px 0;
+`
+
+export const Title = styled.Text<{ color: string }>`
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: ${props => props.color};
+`
+
 export const Row = styled.View`
   flex-direction: row;
   align-items: center;
@@ -12,12 +26,13 @@ export const Row = styled.View`
 `
 
 export const LeftText = styled.Text`
-  min-width: 100px;
-  color: #747476;
+  color: #000;
+  font-size: 12px;
+  min-width: 90px;
+  font-weight: bold;
 `
 
 export const RightText = styled.Text`
-  min-width: 60px;
-  font-weight: bold;
-  text-align: center;
+  color: #747476;
+  min-width: 40px;
 `
