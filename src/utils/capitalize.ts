@@ -1,5 +1,5 @@
 const capitalize = (text: string) => {
-  text.replace('-', ' ')
+  text = text.replace('-', ' ')
   return text.charAt(0).toUpperCase() + text.slice(1, text.length)
 }
 
