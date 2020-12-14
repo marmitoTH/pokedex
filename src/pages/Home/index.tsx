@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { StatusBar } from 'expo-status-bar'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import { useNavigation } from '@react-navigation/native'
 import api from '../../services/api'
@@ -70,6 +71,7 @@ const Home: React.FC = () => {
           />
         }}
       />
+      <StatusBar style='dark' />
     </Styled.Container>
   )
 }

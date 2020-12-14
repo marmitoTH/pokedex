@@ -1,5 +1,4 @@
 import React from 'react'
-import { StatusBar } from 'expo-status-bar'
 import IPokemon from '../../types/IPokemon'
 import capitalize from '../../utils/capitalize'
 import getColorFromType from '../../utils/getColorFromType'
@@ -93,7 +92,6 @@ const About: React.FC<Props> = ({ pokemonData }) => {
           ({pokemonData.breedings.eggCycles.text})
         </Styled.RightText>
       </Styled.Row>
-      <StatusBar style='light' />
     </Styled.Container>
   )
 }

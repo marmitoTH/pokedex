@@ -4,8 +4,9 @@ import Constants from 'expo-constants'
 export const Container = styled.View`
   flex: 1;
   padding: 25px;
+  padding-top: ${25 + Constants.statusBarHeight}px;
   padding-bottom: 0;
-  margin-top: ${Constants.statusBarHeight}px;
+  background: #fff;
 `
 
 export const Pokeball = styled.Image`
@@ -15,7 +16,7 @@ export const Pokeball = styled.Image`
   height: 350px;
   position: absolute;
   align-self: center;
-  top: -175px;
+  top: -170px;
 `
 
 export const Title = styled.Text`
