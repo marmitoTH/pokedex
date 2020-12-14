@@ -12,6 +12,7 @@ import * as Styled from './styles'
 
 import About from '../About'
 import BaseStats from '../BaseStats'
+import Evolutions from '../Evolutions'
 
 const Details: React.FC = () => {
   const route = useRoute()
@@ -51,6 +52,8 @@ const Details: React.FC = () => {
                 return <About pokemonData={data} />
               case 1:
                 return <BaseStats pokemonData={data} />
+              case 2:
+                return <Evolutions pokemonID={data.id} />
             }
           })()}
         </ScrollView>
