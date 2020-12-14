@@ -1,6 +1,7 @@
 import React from 'react'
 import IPokemon from '../../types/IPokemon'
 import capitalize from '../../utils/capitalize'
+import getColorFromType from '../../utils/getColorFromType'
 import * as Styled from './styles'
 
 export interface Props {
@@ -13,7 +14,9 @@ const About: React.FC<Props> = ({ pokemonData }) => {
       <Styled.Description>
         {pokemonData.description}
       </Styled.Description>
-      <Styled.Title>Pokédex Data</Styled.Title>
+      <Styled.Title color={getColorFromType(pokemonData.types[0])}>
+        Pokédex Data
+      </Styled.Title>
       <Styled.Row>
         <Styled.LeftText>Species</Styled.LeftText>
         <Styled.RightText>{pokemonData.species}</Styled.RightText>
@@ -22,11 +25,13 @@ const About: React.FC<Props> = ({ pokemonData }) => {
         <Styled.LeftText>Height</Styled.LeftText>
         <Styled.RightText>{pokemonData.height}m</Styled.RightText>
       </Styled.Row>
-      <Styled.Row>
+      <Styled.Row style={{ marginBottom: 0 }}>
         <Styled.LeftText>Weight</Styled.LeftText>
         <Styled.RightText>{pokemonData.weight}Kg</Styled.RightText>
       </Styled.Row>
-      <Styled.Title>Training</Styled.Title>
+      <Styled.Title color={getColorFromType(pokemonData.types[0])}>
+        Training
+      </Styled.Title>
       <Styled.Row>
         <Styled.LeftText>EV Yield</Styled.LeftText>
         <Styled.RightText>{pokemonData.training.evYield}</Styled.RightText>
@@ -45,11 +50,13 @@ const About: React.FC<Props> = ({ pokemonData }) => {
         <Styled.LeftText>Base Exp</Styled.LeftText>
         <Styled.RightText>{pokemonData.training.baseExp}</Styled.RightText>
       </Styled.Row>
-      <Styled.Row>
+      <Styled.Row style={{ marginBottom: 0 }}>
         <Styled.LeftText>Growth Rate</Styled.LeftText>
         <Styled.RightText>{pokemonData.training.growthRate}</Styled.RightText>
       </Styled.Row>
-      <Styled.Title>Breeding</Styled.Title>
+      <Styled.Title color={getColorFromType(pokemonData.types[0])}>
+        Breeding
+      </Styled.Title>
       <Styled.Row>
         <Styled.LeftText>Gender</Styled.LeftText>
         <Styled.RightText
