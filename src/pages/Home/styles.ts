@@ -12,11 +12,11 @@ export const Container = styled.View`
 export const Pokeball = styled.Image`
   z-index: -1;
   opacity: 0.025;
-  width: 350px;
-  height: 350px;
+  width: 400px;
+  height: 400px;
   position: absolute;
   align-self: center;
-  top: -170px;
+  top: -200px;
 `
 
 export const Title = styled.Text`
@@ -28,13 +28,6 @@ export const Description = styled.Text`
   font-size: 16px;
   line-height: 20px;
   margin-top: 10px;
-`
-
-export const Input = styled.TextInput`
-  padding: 20px;
-  background: #F2F2F2;
-  margin-top: 25px;
-  border-radius: 50px;
 `
 
 export const List = styled.FlatList`

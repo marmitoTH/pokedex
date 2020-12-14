@@ -4,6 +4,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage'
 import { useNavigation } from '@react-navigation/native'
 import api from '../../services/api'
 import IPokemon from '../../types/IPokemon'
+import SearchBar from '../../components/SearchBar'
 import Card from '../../components/Card'
 import * as Styled from './styles'
 
@@ -54,7 +55,8 @@ const Home: React.FC = () => {
       <Styled.Description>
         Search for Pokémon by name or using the National Pokédex number.
       </Styled.Description>
-      <Styled.Input
+      <SearchBar
+        style={{ marginTop: 25 }}
         placeholder='What Pokémon are you looking for?'
         onChangeText={handleSearch}
       />
