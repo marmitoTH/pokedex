@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import TypeCard from '../TypeCard'
 import capitalize from '../../utils/capitalize'
 import * as Styled from './styles'
@@ -32,4 +32,4 @@ const Card: React.FC<CardProps> = ({ pokemonData, onPress }) => {
   )
 }
 
-export default Card
+export default memo(Card)

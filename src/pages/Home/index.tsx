@@ -1,15 +1,20 @@
-import React, { useEffect, useState } from 'react'
-import { StatusBar } from 'expo-status-bar'
+import React, { useCallback, useEffect, useState } from 'react'
+import { ListRenderItemInfo, NativeScrollEvent, NativeSyntheticEvent } from 'react-native'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import { useNavigation } from '@react-navigation/native'
+import { StatusBar } from 'expo-status-bar'
 import api from '../../services/api'
 import IPokemon from '../../types/IPokemon'
 import SearchBar from '../../components/SearchBar'
 import Card from '../../components/Card'
 import * as Styled from './styles'
 
+const INITIAL_TAKE = 10
+const TAKE_ON_SCROLL = 10
+
 const Home: React.FC = () => {
   const navigation = useNavigation()
+  const [take, setTake] = useState(INITIAL_TAKE)
   const [pokemons, setPokemons] = useState<IPokemon[]>()
   const [pokemonsSearch, setPokemonsSearch] = useState<IPokemon[]>()
   const pokeball = require('../../assets/images/pokeball/pokeball.png')
@@ -27,6 +32,22 @@ const Home: React.FC = () => {
       setPokemonsSearch(undefined)
     }
   }
+
+  const handleScroll = useCallback((e: NativeSyntheticEvent<NativeScrollEvent>) => {
+    if ((e.nativeEvent.layoutMeasurement.height +
+      e.nativeEvent.contentOffset.y) /
+      (e.nativeEvent.contentSize.height) >= 0.85) {
+      setTake(prev => prev + TAKE_ON_SCROLL)
+    }
+  }, [])
+
+  const renderItem = useCallback((element: ListRenderItemInfo<unknown>) => {
+    const pokemon = element.item as IPokemon
+    return <Card
+      pokemonData={pokemon}
+      onPress={() => navigation.navigate('Details', pokemon)}
+    />
+  }, [])
 
   useEffect(() => {
     const fetchData = async () => {
@@ -61,17 +82,13 @@ const Home: React.FC = () => {
         onChangeText={handleSearch}
       />
       <Styled.List
-        data={pokemonsSearch || pokemons}
+        data={pokemonsSearch || pokemons?.slice(0, take)}
         contentContainerStyle={{ flexGrow: 1 }}
         showsVerticalScrollIndicator={false}
+        scrollEventThrottle={33}
+        onScroll={handleScroll}
         keyExtractor={(_, index) => String(index)}
-        renderItem={element => {
-          const pokemon = element.item as IPokemon
-          return <Card
-            pokemonData={pokemon}
-            onPress={() => navigation.navigate('Details', pokemon)}
-          />
-        }}
+        renderItem={renderItem}
       />
       <StatusBar style='dark' />
     </Styled.Container>

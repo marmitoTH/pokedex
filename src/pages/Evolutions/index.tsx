@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import capitalize from '../../utils/capitalize'
 import getIDFromUrl from '../../utils/getIDFromUrl'
 import * as Styled from './styled'
@@ -47,50 +47,52 @@ export interface Props {
 }
 
 const Evolutions: React.FC<Props> = ({ pokemonID }) => {
+  const [mounted, setMounted] = useState(true)
   const [evolutions, setEvolutions] = useState<Evolution[]>()
   const pokeball = require('../../assets/images/pokeball/pokeball.png')
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const specieRequest = await fetch('https://pokeapi.co/api/v2/' +
-        `pokemon-species/${pokemonID}`)
-      const specieData = (await specieRequest.json()) as SpecieData
-      const chainRequest = await fetch(specieData.evolution_chain.url)
-      const chainData = (await chainRequest.json()) as EvolutionChain
+  const fetchData = useCallback(async () => {
+    const specieRequest = await fetch('https://pokeapi.co/api/v2/' +
+      `pokemon-species/${pokemonID}`)
+    const specieData = (await specieRequest.json()) as SpecieData
+    const chainRequest = await fetch(specieData.evolution_chain.url)
+    const chainData = (await chainRequest.json()) as EvolutionChain
 
-      const evoChain: Evolution[] = []
-      let evoData = chainData.chain
+    const evoChain: Evolution[] = []
+    let evoData = chainData.chain
 
-      do {
-        let numberOfEvolutions = evoData.evolves_to.length
+    do {
+      let numberOfEvolutions = evoData.evolves_to.length
 
-        evoChain.push({
-          id: getIDFromUrl(evoData.species.url),
-          species_name: evoData.species.name,
-          min_level: evoData.evolution_details[0]?.min_level,
-          trigger_name: evoData.evolution_details[0]?.trigger.name,
-          item_name: evoData.evolution_details[0]?.item?.name
-        })
+      evoChain.push({
+        id: getIDFromUrl(evoData.species.url),
+        species_name: evoData.species.name,
+        min_level: evoData.evolution_details[0]?.min_level,
+        trigger_name: evoData.evolution_details[0]?.trigger.name,
+        item_name: evoData.evolution_details[0]?.item?.name
+      })
 
-        if (numberOfEvolutions > 1) {
-          for (let i = 1; i < numberOfEvolutions; i++) {
-            evoChain.push({
-              id: getIDFromUrl(evoData.evolves_to[i]?.species.url),
-              species_name: evoData.evolves_to[i]?.species.name,
-              min_level: evoData.evolves_to[i]?.evolution_details[0]?.min_level,
-              trigger_name: evoData.evolves_to[i]?.evolution_details[0]?.trigger.name,
-              item_name: evoData.evolves_to[i]?.evolution_details[0]?.item?.name
-            })
-          }
+      if (numberOfEvolutions > 1) {
+        for (let i = 1; i < numberOfEvolutions; i++) {
+          evoChain.push({
+            id: getIDFromUrl(evoData.evolves_to[i]?.species.url),
+            species_name: evoData.evolves_to[i]?.species.name,
+            min_level: evoData.evolves_to[i]?.evolution_details[0]?.min_level,
+            trigger_name: evoData.evolves_to[i]?.evolution_details[0]?.trigger.name,
+            item_name: evoData.evolves_to[i]?.evolution_details[0]?.item?.name
+          })
         }
+      }
 
-        evoData = evoData.evolves_to[0];
-      } while (!!evoData && evoData.evolves_to)
+      evoData = evoData.evolves_to[0];
+    } while (mounted && !!evoData && evoData.evolves_to)
 
-      setEvolutions(evoChain)
-    }
+    setEvolutions(evoChain)
+  }, [])
 
+  useEffect(() => {
     fetchData()
+    return () => setMounted(false)
   }, [])
 
   return (
