@@ -1,5 +1,4 @@
 import React from 'react'
-import { useRoute } from '@react-navigation/native'
 import IPokemon from '../../types/IPokemon'
 import GaugeBar from '../../components/GaugeBar'
 import getColorFromType from '../../utils/getColorFromType'
@@ -12,9 +11,6 @@ export interface Props {
 }
 
 const BaseStats: React.FC<Props> = ({ pokemonData }) => {
-  const route = useRoute()
-  //const pokemonData = route.params as IPokemon
-
   return (
     <Styled.Container>
       <Styled.Title color={getColorFromType(pokemonData.types[0])}>

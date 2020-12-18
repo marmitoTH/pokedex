@@ -1,5 +1,4 @@
 import React, { useCallback, useEffect, useState } from 'react'
-import { useRoute } from '@react-navigation/native'
 import capitalize from '../../utils/capitalize'
 import getIDFromUrl from '../../utils/getIDFromUrl'
 import * as Styled from './styled'
@@ -43,17 +42,11 @@ interface Evolution {
   item_name: string | null
 }
 
-interface Params {
-  id: number
-}
-
 export interface Props {
   pokemonID: number
 }
 
 const Evolutions: React.FC<Props> = ({ pokemonID }) => {
-  const route = useRoute()
-  //const pokemonID = (route.params as Params).id
   const [mounted, setMounted] = useState(true)
   const [evolutions, setEvolutions] = useState<Evolution[]>()
   const pokeball = require('../../assets/images/pokeball/pokeball.png')
