@@ -9,15 +9,9 @@ import TypeCard from '../../components/TypeCard'
 import Navbar from '../../components/Navbar'
 import * as Styled from './styles'
 
-import {
-  createMaterialTopTabNavigator
-} from '@react-navigation/material-top-tabs'
-
 import About from '../About'
 import BaseStats from '../BaseStats'
 import Evolutions from '../Evolutions'
-
-const Tab = createMaterialTopTabNavigator()
 
 const Details: React.FC = () => {
   const route = useRoute()
@@ -45,13 +39,16 @@ const Details: React.FC = () => {
         <Navbar
           tabs={[{
             name: 'About',
-            component: <About pokemonData={data} />
+            component:
+              <About pokemonData={data} />
           }, {
             name: 'Stats',
-            component: <BaseStats pokemonData={data} />
+            component:
+              <BaseStats pokemonData={data} />
           }, {
             name: 'Evolutions',
-            component: <Evolutions pokemonID={data.id} />
+            component:
+              <Evolutions pokemonID={data.id} />
           }]}
           style={{ marginTop: 40 }}
           indicatorColor={getColorFromType(data.types[0])}
