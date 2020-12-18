@@ -1,4 +1,5 @@
 import React from 'react'
+import { useRoute } from '@react-navigation/native'
 import IPokemon from '../../types/IPokemon'
 import capitalize from '../../utils/capitalize'
 import getColorFromType from '../../utils/getColorFromType'
@@ -9,6 +10,9 @@ export interface Props {
 }
 
 const About: React.FC<Props> = ({ pokemonData }) => {
+  const route = useRoute()
+  //const pokemonData = route.params as IPokemon
+
   return (
     <Styled.Container>
       <Styled.Description>

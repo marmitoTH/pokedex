@@ -1,6 +1,5 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { StatusBar } from 'expo-status-bar'
-import { ScrollView } from 'react-native'
 import { useNavigation, useRoute } from '@react-navigation/native'
 import IPokemon from '../../types/IPokemon'
 import capitalize from '../../utils/capitalize'
@@ -10,15 +9,20 @@ import TypeCard from '../../components/TypeCard'
 import Navbar from '../../components/Navbar'
 import * as Styled from './styles'
 
+import {
+  createMaterialTopTabNavigator
+} from '@react-navigation/material-top-tabs'
+
 import About from '../About'
 import BaseStats from '../BaseStats'
 import Evolutions from '../Evolutions'
+
+const Tab = createMaterialTopTabNavigator()
 
 const Details: React.FC = () => {
   const route = useRoute()
   const navigation = useNavigation()
   const data = route.params as IPokemon
-  const [subPageIdx, setSubPageIdx] = useState(0)
   const pokeball = require('../../assets/images/pokeball/pokeball.png')
 
   return (
@@ -39,24 +43,19 @@ const Details: React.FC = () => {
       </Styled.Header>
       <Styled.Main>
         <Navbar
+          tabs={[{
+            name: 'About',
+            component: <About pokemonData={data} />
+          }, {
+            name: 'Stats',
+            component: <BaseStats pokemonData={data} />
+          }, {
+            name: 'Evolutions',
+            component: <Evolutions pokemonID={data.id} />
+          }]}
           style={{ marginTop: 40 }}
-          selectionColor={getColorFromType(data.types[0])}
-          options={['About', 'Stats', 'Evolutions']}
-          onChange={setSubPageIdx}
+          indicatorColor={getColorFromType(data.types[0])}
         />
-        <ScrollView>
-          {(() => {
-            switch (subPageIdx) {
-              default:
-              case 0:
-                return <About pokemonData={data} />
-              case 1:
-                return <BaseStats pokemonData={data} />
-              case 2:
-                return <Evolutions pokemonID={data.id} />
-            }
-          })()}
-        </ScrollView>
       </Styled.Main>
       <StatusBar style='light' />
     </Styled.Container>
