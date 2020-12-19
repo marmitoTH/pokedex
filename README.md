@@ -1,7 +1,3 @@
-<p align='center'>
-  <img src='https://user-images.githubusercontent.com/25598040/102695979-b8f2f080-4209-11eb-98c1-acec0d684790.png' width='70' />
-</p>
-
 <h3 align='center'>
   <strong>Pokédex</strong>
 </h3>
