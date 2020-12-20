@@ -19,7 +19,7 @@
 
 Pokédex is a mobile application built with [React Native](https://reactnative.dev/) and [Typescript](https://www.typescriptlang.org/) capable of listing Pokémons from various generations and display informations about each of them, just like the Pokédex from the original games and anime series. For such, the app consumes data from the APIs [pokemon-db-json](https://pokemon-db-json.herokuapp.com/) and [PokéAPI](https://pokeapi.co/).
 
-The application was made to practice React Native, consuming third-party APIs, displaying big amount of data with "infinite" scroll, navigation between screens, mobile styling with [Styled Components](https://styled-components.com/) and animations. The layout is based on [Saepul Nahwan](https://dribbble.com/shots/6540871-Pokedex-App) design.
+The application was made to practice React Native, consuming third-party APIs, displaying big amount of data with "infinite" scroll, navigation between screens, mobile styling with [Styled Components](https://styled-components.com/) and animations. The layout is based on [Flavio Farias](https://www.behance.net/gallery/95727849/Pokdex-App) and [Saepul Nahwan](https://dribbble.com/shots/6540871-Pokedex-App) design.
 
 ## 👀 Demo
 
